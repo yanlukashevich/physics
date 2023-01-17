@@ -52,8 +52,8 @@ void create_atoms(struct atom * atom_arr){
 void collision_check(struct electron * el, struct atom * atom_arr){
     int i;
     float wspx, wspy, r2;
-    wspx=(el->x - (atom_arr+i)->x)*(el->x - (atom_arr+i)->x);
-    wspy=(el->y - (atom_arr+i)->y)*(el->y - (atom_arr+i)->y);
+    wspx=((el->x - (atom_arr+i)->x)*(el->x - (atom_arr+i)->x));
+    wspy=((el->y - (atom_arr+i)->y)*(el->y - (atom_arr+i)->y));
     r2=25;
     if(el->y > 100){
         el->y=el->y-100;
@@ -61,9 +61,13 @@ void collision_check(struct electron * el, struct atom * atom_arr){
     if(el->y < 0){
         el->y=el->y+100;
     }
-
+    /*for(i=0;i<300;i++){
+            if(((el->x - (atom_arr+i)->x)*(el->x - (atom_arr+i)->x)+(el->y - (atom_arr+i)->y)*(el->y - (atom_arr+i)->y)) < r2){
+                el->vx=0;
+            }
+        }*/
     for(i=0;i<300;i++){
-        if((wspx+wspy) < r2){
+        if( (wspx+wspy)<r2){
             el->vx=0;
         }
     }
