@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <unistd.h>
+
 
 struct electron{
     float x,y,vx,vy;
@@ -12,8 +14,10 @@ struct atom{
 
 //stwarza electron na początku pola z takimi wartościami x=0 y(0;100) vx(-10;10) vy(-10;10) 
 struct electron create_electron(void){
+    printf("\nprintf z funkcji create electron przed srand");
     struct electron el;
-    srand(time(NULL));
+    srand((unsigned)time(NULL));
+    printf("\nprintf z funkcji create electron po srand");
     el.x=0;
     el.y=rand()%101;
     el.vx=rand()%20-10;
@@ -80,24 +84,27 @@ void collision_check(struct electron * el, struct atom * atom_arr){
 
 //pole ma rozmiar x(0;1000) y(0;100)
 int main(){
-    int n;
+    int n=0;
     float boost=5;
+    float avsp;
     struct electron el;
     struct atom atom_arr[300];
 
-    el=create_electron();
-    create_atoms(atom_arr);
-
-    //robi iteracji póki electron nie skonczy droge
-    for(n=0;;n++){
-        onesecond(&el, boost);
-        collision_check(&el, atom_arr);
-        //kończy programm jeśli współrzędna x>1000
-        if(el.x > 1000){
-            break;
+    for(int i=0;i<100;i++){
+        sleep(1);
+        printf("numer electronu %d\n",i);
+        n=0;   
+        create_atoms(atom_arr);
+        el=create_electron();
+        while(el.x < 1000){
+            n++;
+            onesecond(&el, boost);
+            collision_check(&el, atom_arr);
         }
-    }
-    printf("mineło t = %d secund", n);
+        printf("\nczas %d\n",n);
+        avsp=(float)1000/n;
+        printf("average speed = %f\n", avsp);
+        }
 
     return 0;
 }
