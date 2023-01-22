@@ -1,0 +1,3 @@
+
+# Nie Zdamy
+z fizyki
