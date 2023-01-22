@@ -91,7 +91,7 @@ void collision_check(struct electron * ele, struct XY * atom){
         
         if((cord_x+cord_y)<r2){
             ele->x_veleocity=0;
-            //printf("colizja ele.x=%f ele.y=%f  XY.x=%f XY.y=%f\n", ele->x, ele->y, (atom+i)->x, (atom+i)->y);
+            //printf("\n<<kolizja>>\nelek (%f, %f)\natom (%f, %f)\n", ele->x, ele->y, (atom+i)->x, (atom+i)->y);
         }
     }
 }
@@ -149,3 +149,5 @@ int main()
         
     return 0;
 }
+
+
