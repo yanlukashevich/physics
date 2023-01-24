@@ -159,13 +159,13 @@ int main()
     ////////////////////////////////////////////////////////////////
 
     printf("\nProgram symuluje losowy ruch elektronu w kawalku przewodu w zaleznosci od napiecia");
-    printf("\noraz oblicza stosunek predkosci elektronu do tego napiecia");
+    printf("\noraz oblicza stosunek predkosci elektronu do przyspieszenia.");
     printf("\n[[Expected constant ratio, regardless of input data]].");
     printf("\n\nPodaj przespieszenie wywolane przez napiecie [m/s] = "); scanf("%f", &boost);
 
         
         int seed_index;
-        printf("Podaj ilosc powtorzen symulacji = "); scanf("%d", &num_of_electrons);
+        printf("Podaj ilosc powtorzen symulacji [max 100] = "); scanf("%d", &num_of_electrons);
         for(nth_electron = 0;     nth_electron < num_of_electrons;     nth_electron++)
         {
             seed_index = nth_electron;
