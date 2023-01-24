@@ -107,7 +107,7 @@ void fancy_result(float TOTAL_AVG_SPEED, float boost)
 {
     fflush(stdout);
     printf("\n>>> AVERAGE VELOCITY OF SIMULATED ELECTRONS = %f", TOTAL_AVG_SPEED); fflush(stdout); sleep(1);
-    printf("\n>>> SPEED-TO-VOLTAGE RATIO (V/U) = %f", TOTAL_AVG_SPEED/boost); fflush(stdout); sleep(1); printf("\n\n");
+    printf("\n>>> SPEED-TO-ACCELERATION RATIO (V/a) = %f", TOTAL_AVG_SPEED/boost); fflush(stdout); sleep(1); printf("\n\n");
 }
 
 
