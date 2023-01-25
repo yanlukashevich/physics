@@ -139,9 +139,9 @@ int main()
     {
         fprintf(file, "%d\n", x);
         x=x+13;  // Add any number to itterate seed
-    }   fprintf(file, "%d", x);
-
-    printf("\n>>> Created seed-list file");
+    }   fprintf(file, "%d", x); // Last line without '\n'
+    
+    // printf("\n>>> Created seed-list file");
     
     ////////////////////////////////////////////////////////////////
 
@@ -153,8 +153,8 @@ int main()
         // printf("seed[%d] = %d\n", i+1, seed_list[i]);
     }
     fclose(file);
-    printf("\n>>> Assigned seed values to seed array");
-    printf("\n>>> Using seed array instead of srand(time(NULL))\n");
+    // printf("\n>>> Assigned seed values to seed array");
+    // printf("\n>>> Using seed array instead of srand(time(NULL))\n");
 
     ////////////////////////////////////////////////////////////////
 
