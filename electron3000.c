@@ -55,15 +55,14 @@ struct electron one_cycle(struct electron something, float boost)
 
 
 
-//Tworzy siatke atomow (x,y) - (1000, 100)
+//Tworzy siatke atomow (x,y) - (1000 x 100)
 void create_atoms(struct XY * atom){
-    int i,j,n;
-    for(j=0; j<6 ;j++)
+    int columns,rows;
+    for(rows=0; rows<6 ;rows++)
     {
-        for(i=0; i<50; i++){
-            n++;
-            (atom+50*j+i) -> x=20*i;
-            (atom+50*j+i) -> y=20*j;
+        for(columns=0; columns<50; columns++){
+            (atom+50*rows+columns) -> x=20*columns;
+            (atom+50*rows+columns) -> y=20*rows;
         }
     }
     // for(i=0; i<300; i++){
